@@ -7,6 +7,8 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import {
+  HomeIcon,
+  EnvelopeIcon,
   RectangleStackIcon,
   UserCircleIcon,
   CommandLineIcon,
@@ -17,16 +19,18 @@ import {
 
 const NAV_MENU = [
   {
-    name: "Page",
-    icon: RectangleStackIcon,
+    name: "Home",
+    icon: HomeIcon,
+    href: "#",
   },
   {
-    name: "Account",
+    name: "Portfolio",
     icon: UserCircleIcon,
+    href: "#",
   },
   {
-    name: "Docs",
-    icon: CommandLineIcon,
+    name: "Contact",
+    icon: EnvelopeIcon,
     href: "#",
   },
 ];
@@ -68,17 +72,10 @@ export function Navbar() {
   return (
     <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between border-b-4 border-l-4 pl-2">
-        <Typography color="blue-gray" className="text-lg font-bold">
+        <Typography color="blue-gray" className="text-xl font-bold uppercase">
           Art By Eli Saddiq
         </Typography>
-        <ul className="ml-10 hidden items-center gap-8 lg:flex">
-          {NAV_MENU.map(({ name, icon: Icon, href }) => (
-            <NavItem key={name} href={href}>
-              <Icon className="h-5 w-5" />
-              {name}
-            </NavItem>
-          ))}
-        </ul>
+
 {/*         <div className="hidden items-center gap-2 lg:flex">
           <Button variant="text">Sign In</Button>
           <a href="#">
@@ -98,6 +95,20 @@ export function Navbar() {
           )}
         </IconButton>
       </div>
+      <div className="container mx-auto flex items-center justify-between  border-l-4 pl-2">
+        <Typography color="blue-gray" className="text-xl font-bold uppercase">
+         </Typography> 
+              <ul className="ml-10 hidden items-center gap-8 lg:flex">
+          {NAV_MENU.map(({ name, icon: Icon, href }) => (
+            <NavItem key={name} href={href}>
+              <Icon className="h-5 w-5" />
+              {name}
+            </NavItem>
+          ))}
+        </ul>          
+        
+      </div>
+
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
           <ul className="flex flex-col gap-4">

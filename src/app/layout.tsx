@@ -11,9 +11,9 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js + Tailwind Portfolio Page",
+  title: "Art By EliSaddiq Online Portfolio",
   description:
-    "Introducing Tailwind Portfolio Page, a versatile and stylish portfolio template built on the foundation of Tailwind CSS and Material Tailwind.",
+    "Introducing Art By EliSaddiq, a versatile and stylish Portrature Artist. With a passion for capturing the essence of individuals through art, EliSaddiq creates stunning portraits that blend creativity and realism. Explore a diverse portfolio showcasing a range of styles and subjects, from classic to contemporary. Whether you're looking for a personalized portrait or seeking inspiration, Art By EliSaddiq offers a unique artistic experience that celebrates individuality and creativity.",
 };
 
 export default function RootLayout({
@@ -24,12 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
+{/*         <script
           defer
           data-site="YOUR_DOMAIN_HERE"
           src="https://api.nepcha.com/js/nepcha-analytics.js"
-        ></script>
-        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        ></script> */}
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </head>
       <body className={roboto.className}>
         <Layout>

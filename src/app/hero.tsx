@@ -14,15 +14,14 @@ function Hero() {
             color="blue-gray"
             className="mb-4 lg:text-5xl !leading-tight text-3xl"
           >
-            Welcome to my Portofolio!
+            Welcome to my Portfolio!
           </Typography>
           <Typography
             variant="lead"
             className="mb-4 !text-gray-500 md:pr-16 xl:pr-28"
           >
-            I&apos;m Lily Smith, a passionate web developer based in USA. Here,
-            you&apos;ll get a glimpse of my journey in the world of web
-            development, where creativity meets functionality.
+            I&apos;m Elijah, a passionate artist based in the USA. Here,
+            you&apos;ll get a glimpse of my journey in the world of art and creativity.
           </Typography>
           <div className="grid">
 {/*             <Typography

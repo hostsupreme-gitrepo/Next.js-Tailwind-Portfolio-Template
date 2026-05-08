@@ -15,11 +15,13 @@ import {
   Squares2X2Icon,
   XMarkIcon,
   Bars3Icon,
+
 } from "@heroicons/react/24/solid";
+import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
 
 const NAV_MENU = [
   {
-    name: "Home",
+    name: "Home/about the artist",
     icon: HomeIcon,
     href: "#",
   },
@@ -34,7 +36,23 @@ const NAV_MENU = [
     href: "#",
   },
 ];
-
+const SOCIAL = [
+  {
+    name: "Instagram",
+    icon: FaInstagram,
+    href: "https://instagram.com",
+  },
+  {
+    name: "Facebook",
+    icon: FaFacebook,
+    href: "https://facebook.com",
+  },
+  {
+    name: "TikTok",
+    icon: FaTiktok,
+    href: "https://tiktok.com",
+  },
+];
 interface NavItemProps {
   children: React.ReactNode;
   href?: string;
@@ -49,7 +67,7 @@ function NavItem({ children, href }: NavItemProps) {
         target={href ? "_blank" : "_self"}
         variant="paragraph"
         color="gray"
-        className="flex items-center gap-2 font-medium text-gray-900"
+        className="flex items-center gap-2 font-medium text-gray-900 text-2xl uppercase transition-colors hover:text-gray-500"
       >
         {children}
       </Typography>
@@ -71,42 +89,37 @@ export function Navbar() {
 
   return (
     <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50">
-      <div className="container mx-auto flex items-center justify-between border-b-4 border-l-4 pl-2">
-        <Typography color="blue-gray" className="text-xl font-bold uppercase">
+      <div className="container mx-auto flex items-center justify-center border-b-4 border-l-8 border-black pl-2">
+        <Typography color="blue-gray" className="text-7xl font-bold uppercase ">
           Art By Eli Saddiq
-        </Typography>
+        </Typography>      </div>
+      <div className="container mx-auto flex  items-center justify-center border-black border-l-8 pl-2">
 
-{/*         <div className="hidden items-center gap-2 lg:flex">
-          <Button variant="text">Sign In</Button>
-          <a href="#">
-            <Button color="gray">blocks</Button>
-          </a>
-        </div> */}
-        <IconButton
-          variant="text"
-          color="gray"
-          onClick={handleOpen}
-          className="ml-auto inline-block lg:hidden"
-        >
-          {open ? (
-            <XMarkIcon strokeWidth={2} className="h-6 w-6" />
-          ) : (
-            <Bars3Icon strokeWidth={2} className="h-6 w-6" />
-          )}
-        </IconButton>
-      </div>
-      <div className="container mx-auto flex items-center justify-between  border-l-4 pl-2">
-        <Typography color="blue-gray" className="text-xl font-bold uppercase">
-         </Typography> 
-              <ul className="ml-10 hidden items-center gap-8 lg:flex">
+        <ul className="ml-10 hidden items-center  gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href }) => (
-            <NavItem key={name} href={href}>
-              <Icon className="h-5 w-5" />
+            <NavItem key={name} href={href} >
+              <Icon className="h-7 w-7 " />
               {name}
             </NavItem>
           ))}
-        </ul>          
-        
+        </ul>
+        <Typography color="blue-gray" className=" font-bold uppercase">
+        </Typography>
+
+        <ul className="ml-auto hidden items-center gap-6 lg:flex">
+          {SOCIAL.map(({ name, icon: Icon, href }) => (
+            <li key={name}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-black transition-colors"
+              >
+                <Icon className="h-6 w-6" />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <Collapse open={open}>
@@ -119,6 +132,21 @@ export function Navbar() {
               </NavItem>
             ))}
           </ul>
+
+          <div className="mt-6 flex items-center gap-4">
+            {SOCIAL.map(({ name, icon: Icon, href }) => (
+              <a
+                key={name}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-black transition-colors"
+              >
+                <Icon className="h-6 w-6" />
+              </a>
+            ))}
+          </div>
+
           <div className="mt-6 mb-4 flex items-center gap-2">
             <Button variant="text">Sign In</Button>
             <a href="#">

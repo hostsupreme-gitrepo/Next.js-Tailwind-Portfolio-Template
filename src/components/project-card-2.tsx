@@ -33,24 +33,18 @@ export function ProjectCard2({ img, title, desc, pictureleft }: ProjectCardProps
     const cardbody = () => {
         return (
             <CardBody className="p-0 flex flex-col  items-center gap-2 w-full">
-                <a href="#" className="text-blue-gray-900 transition-colors hover:text-gray-800"   >
-                    <Typography variant="h5" className="mb-2 text-7xl">
+                <a href="#" className="text-blue-gray-900 transition-colors hover:text-gray-800 "   >
+                    <Typography variant="h5" className="mb-2 text-5xl lg:text-7xl">
                         {title}
                     </Typography>
                 </a>
-{/*                 <Typography className="mb-6 font-normal !text-gray-500">
-                    {desc}
-                </Typography>
-                <Button color="gray" size="sm">
-                    see details
-                </Button> */}
             </CardBody>
         )
     }
 
-    const bgcolor = pictureleft ? "bg-black" : "bg-blue-00";
+    const bgcolor = pictureleft ? "md:bg-black" : "md:bg-blue-700";
     const carrdstyle = `flex flex-col md:flex-row items-center gap-6 ${bgcolor}`;
-    
+
     return (
         <Card color="transparent" shadow={false} className={carrdstyle}>
             {pictureleft ? (

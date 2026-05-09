@@ -1,31 +1,34 @@
 "use client";
 
-import { ProjectCard } from "@/components";
+import { ProjectCard2 } from "@/components";
 import { Typography } from "@material-tailwind/react";
 import { getImagePrefix } from "../../utils/utils";
 
 const PROJECTS = [
   {
     img: `${getImagePrefix()}image/blog-1.svg`,
-    title: "Mobile App Development",
+    title: "Paintings",
     desc: "Mobile app designed to help users discover and explore local restaurants and cuisines.",
+    orientation: "left"
   },
   {
     img: `${getImagePrefix()}image/blog2.svg`,
-    title: "Landing Page Development",
+    title: "Drawings",
     desc: "Promotional landing page for a  fitness website Summer Campaign. Form development included.",
+    orientation: "right"
   },
   {
     img: `${getImagePrefix()}image/blog3.svg`,
-    title: "Mobile App Development",
+    title: "Illustrations",
     desc: "Mobile app designed to help users discover and explore local restaurants and cuisines.",
+    orientation: "left"
   },
-  {
+/*  {
     img: `${getImagePrefix()}image/blog4.svg`,
     title: "E-commerce development",
     desc: "Ecommerce website offering  access to the latest and greatest gadgets and accessories.",
   },
-  {
+   {
     img: `${getImagePrefix()}image/blog-1.svg`,
     title: "Mobile App Development",
     desc: "Mobile app designed to help users discover and explore local restaurants and cuisines.",
@@ -44,7 +47,7 @@ const PROJECTS = [
     img: `${getImagePrefix()}image/blog4.svg`,
     title: "E-commerce development",
     desc: "Ecommerce website offering  access to the latest and greatest gadgets and accessories.",
-  },
+  }, */
 ];
 
 export function Projects() {
@@ -63,9 +66,9 @@ export function Projects() {
           dreams into reality.
         </Typography>
       </div>
-      <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-2 xl:grid-cols-4">
+      <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-1 xl:grid-cols-1">
         {PROJECTS.map((props, idx) => (
-          <ProjectCard key={idx} {...props} />
+          <ProjectCard2 key={idx} {...props} />
         ))}
       </div>
     </section>

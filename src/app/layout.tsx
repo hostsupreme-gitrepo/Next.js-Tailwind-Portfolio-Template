@@ -24,14 +24,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-{/*         <script
+        {/*         <script
           defer
           data-site="YOUR_DOMAIN_HERE"
           src="https://api.nepcha.com/js/nepcha-analytics.js"
         ></script> */}
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </head>
-      <body className={roboto.className}>
+      <body className={roboto.className} >
         <Layout>
           {children}
           <FixedPlugin />

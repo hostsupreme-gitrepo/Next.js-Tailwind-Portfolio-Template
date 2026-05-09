@@ -89,13 +89,12 @@ export function Navbar() {
 
   return (
     <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50">
-      <div className="container mx-auto flex items-center justify-center border-b-4 border-l-8 border-black pl-2">
+      <div className="container mx-auto flex items-center justify-left border-b-4 border-l-8 border-black pl-2">
         <Typography color="blue-gray" className="text-7xl font-bold uppercase ">
           Art By Eli Saddiq
         </Typography>      </div>
       <div className="container mx-auto flex  items-center justify-center border-black border-l-8 pl-2">
-
-        <ul className="ml-10 hidden items-center  gap-8 lg:flex">
+        <ul className="ml-1 hidden items-left  gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href }) => (
             <NavItem key={name} href={href} >
               <Icon className="h-7 w-7 " />

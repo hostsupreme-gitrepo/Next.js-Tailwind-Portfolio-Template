@@ -19,6 +19,9 @@ export function ProjectCard2({ img, title, desc, pictureleft }: ProjectCardProps
     const cardheader = () => {
         return (
             <CardHeader floated={false} className="mx-0 mt-0 mb-6 md:h-[50vh]">
+                <Typography variant="h5" className="md:hidden mb-2 pt-2 text-5xl  ">
+                    {title}
+                </Typography>
                 <Image
                     src={img}
                     alt={title}
@@ -32,9 +35,9 @@ export function ProjectCard2({ img, title, desc, pictureleft }: ProjectCardProps
 
     const cardbody = () => {
         return (
-            <CardBody className="p-0 flex flex-col  items-center gap-2 w-full">
+            <CardBody className="p-0  hidden md:flex lg:flex flex-col  items-center gap-2 w-full">
                 <a href="#" className="text-blue-gray-900 transition-colors hover:text-gray-800 "   >
-                    <Typography variant="h5" className="mb-2 text-5xl lg:text-7xl">
+                    <Typography variant="h5" className="mb-2 text-5xl lg:text-7xl ">
                         {title}
                     </Typography>
                 </a>

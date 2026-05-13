@@ -46,10 +46,10 @@ export function ProjectCard2({ img, title, desc, pictureleft }: ProjectCardProps
     }
 
     const bgcolor = pictureleft ? "md:bg-black" : "md:bg-blue-700";
-    const carrdstyle = `flex flex-col md:flex-row items-center gap-6 ${bgcolor}`;
+    const cardstyle = `flex flex-col md:flex-row items-center gap-6 ${bgcolor}`;
 
     return (
-        <Card color="transparent" shadow={false} className={carrdstyle}>
+        <Card color="transparent" shadow={false} className={cardstyle}>
             {pictureleft ? (
                 <>
                     {cardheader()}

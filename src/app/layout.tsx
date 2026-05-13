@@ -21,6 +21,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const style = `${roboto.className} `;
   return (
     <html lang="en">
       <head>
@@ -31,7 +32,7 @@ export default function RootLayout({
         ></script> */}
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </head>
-      <body className={roboto.className} >
+      <body className={style}>
         <Layout>
           {children}
           <FixedPlugin />

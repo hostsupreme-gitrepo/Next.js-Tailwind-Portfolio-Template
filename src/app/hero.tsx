@@ -11,14 +11,14 @@ function Hero() {
         <div className="row-start-2 lg:row-auto">
           <Typography
             variant="h1"
-            color="blue-gray"
+            color="white"
             className="mb-4 lg:text-5xl !leading-tight text-3xl"
           >
             Welcome to my Portfolio!
           </Typography>
           <Typography
             variant="lead"
-            className="mb-4 !text-gray-500 md:pr-16 xl:pr-28"
+            className="mb-4 !text-[#d4d4d4] md:pr-16 xl:pr-28"
           >
             I&apos;m Elijah, a passionate artist based in the USA. Here,
             you&apos;ll get a glimpse of my journey in the world of art and creativity.

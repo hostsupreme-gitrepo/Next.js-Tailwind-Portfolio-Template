@@ -32,7 +32,7 @@ export function ContactForm() {
           <CardBody className="grid grid-cols-1 lg:grid-cols-7 md:gap-10">
             <div className="w-full col-span-3 rounded-lg h-full py-8 p-5 md:p-16 bg-gray-900">
               <Typography variant="h4" color="white" className="mb-2">
-                Contact Information
+                Contact for Commission or Purchase
               </Typography>
               <Typography
                 variant="lead"
@@ -50,10 +50,10 @@ export function ContactForm() {
               <div className="flex my-2 gap-5">
                 <EnvelopeIcon className="h-6 w-6 text-white" />
                 <Typography variant="h6" color="white" className="mb-2">
-                  hello@mail.com
+                  eli@elisaddiq.art
                 </Typography>
               </div>
-              <div className="flex mb-10 gap-5">
+              <div className="flex hidden mb-10 gap-5">
                 <TicketIcon className="h-6 w-6 text-white" />
                 <Typography variant="h6" color="white" className="mb-2">
                   Open Support Ticket
@@ -81,7 +81,7 @@ export function ContactForm() {
                     variant="static"
                     label="First Name"
                     name="first-name"
-                    placeholder="eg. Lucas"
+                    placeholder="eg. John"
                     containerProps={{
                       className: "!min-w-full mb-3 md:mb-0",
                     }}
@@ -106,7 +106,7 @@ export function ContactForm() {
                   variant="static"
                   label="Email"
                   name="first-name"
-                  placeholder="eg. lucas@mail.com"
+                  placeholder="eg. John.Jones@mail.com"
                   containerProps={{
                     className: "!min-w-full mb-8",
                   }}
@@ -115,20 +115,15 @@ export function ContactForm() {
                   variant="lead"
                   className="!text-blue-gray-500 text-sm mb-2"
                 >
-                  What are you interested on?
+                  What are you interested in?
                 </Typography>
                 <div className="-ml-3 mb-14 ">
                   {/* @ts-ignore */}
-                  <Radio
-                    color="gray"
-                    name="type"
-                    label="Design"
-                    defaultChecked
-                  />
+                  <Radio color="gray" name="type" label="Commission"  defaultChecked />
                   {/* @ts-ignore */}
-                  <Radio color="gray" name="type" label="Development" />
+                  <Radio color="gray" name="type" label="Design" />
                   {/* @ts-ignore */}
-                  <Radio color="gray" name="type" label="Support" />
+                  <Radio color="gray" name="type" label="Art Showing" />
                   {/* @ts-ignore */}
                   <Radio color="gray" name="type" label="Other" />
                 </div>

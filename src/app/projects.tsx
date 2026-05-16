@@ -6,19 +6,19 @@ import { getImagePrefix } from "../../utils/utils";
 
 const PROJECTS = [
   {
-    img: `/image/unknown_man_2026-05-09_072533.png`,
+    img: `/image/IMG_4481.jpg`,
     title: "Paintings",
     desc: "Mobile app designed to help users discover and explore local restaurants and cuisines.",
     pictureleft: true
   },
   {
-    img: `/image/Donald-Glover-Sketch_2026-05-09_070115.png`,
+    img: `/image/IMG_4548.jpg`,
     title: "Drawings",
     desc: "Promotional landing page for a  fitness website Summer Campaign. Form development included.",
     pictureleft: false
   },
   {
-    img: `/image/muslim_woman-ib.jpg`,
+    img: `/image/IMG_9140.jpg`,
     title: "Illustrations",
     desc: "Mobile app designed to help users discover and explore local restaurants and cuisines.",
     pictureleft: true

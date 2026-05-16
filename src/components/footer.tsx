@@ -1,6 +1,6 @@
 import { Typography, Button } from "@material-tailwind/react";
 
-const LINKS = ["Home", "About Us", "Blog", "Service"];
+const LINKS = ["Home", "About Us", "Gallery", "Projects", "Contact Us"];
 const CURRENT_YEAR = new Date().getFullYear();
 
 export function Footer() {
@@ -9,16 +9,13 @@ export function Footer() {
       <div className="container mx-auto">
         <div className="mt-16 flex flex-wrap items-center justify-center gap-y-4 border-t border-gray-200 py-6 md:justify-between">
           <Typography className="text-center font-normal !text-gray-700">
-            &copy; {CURRENT_YEAR} Made with{" "}
-            <a href="https://www.material-tailwind.com" target="_blank">
-              Material Tailwind
-            </a>{" "}
-            by{" "}
-            <a href="https://www.creative-tim.com" target="_blank">
-              Creative Tim
-            </a>
-            .
-            Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+            &copy; {CURRENT_YEAR}{" "}
+            <a href="https://artbyelisaddiq.com/" target="_blank">
+              Art By Eli Saddiq
+            </a>{" "} - Designed by{" "}
+            <a href="https://www.hostsupre.me" target="_blank">
+              HostSupreme
+            </a>{" "} - All rights reserved.
           </Typography>
           <ul className="flex gap-8 items-center">
             {LINKS.map((link) => (
@@ -27,13 +24,12 @@ export function Footer() {
                   as="a"
                   href="#"
                   variant="small"
-                  className="font-normal text-gray-700 hover:text-gray-900 transition-colors"
+                  className="font-normal text-white hover:text-gray-900 transition-colors"
                 >
                   {link}
                 </Typography>
               </li>
             ))}
-            <Button color="gray">subscribe</Button>
           </ul>
         </div>
       </div>

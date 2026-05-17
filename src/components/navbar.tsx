@@ -17,46 +17,46 @@ import {
   Bars3Icon,
 
 } from "@heroicons/react/24/solid";
-import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
+
+import { FaInstagram, FaYoutube,FaPatreon } from "react-icons/fa6";
 
 const NAV_MENU = [
   {
     name: "Home/about the artist",
     icon: HomeIcon,
-    href: "#",
+    href: "/",
   },
   {
-    name: "Portfolio",
+    name: "My Projects",
     icon: UserCircleIcon,
-    href: "#",
+    href: "/#projects",
   },
-    {
+  {
     name: "Contact",
     icon: EnvelopeIcon,
-    href: "#",
+    href: "/#contact",
   },
-    {
+  {
     name: "Gallery",
     icon: RectangleStackIcon,
     href: "/gallery",
   },
-
 ];
 const SOCIAL = [
   {
     name: "Instagram",
     icon: FaInstagram,
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/artbyelisaddiq?igsh=MWdjdnM0bW83OWZuOA==",
   },
   {
-    name: "Facebook",
-    icon: FaFacebook,
-    href: "https://facebook.com",
+    name: "YouTube",
+    icon: FaYoutube,
+    href: "https://youtube.com",
   },
   {
-    name: "TikTok",
-    icon: FaTiktok,
-    href: "https://tiktok.com",
+    name: "Patreon",
+    icon: FaPatreon,
+    href: "https://patreon.com",
   },
 ];
 interface NavItemProps {
@@ -132,37 +132,37 @@ export function Navbar() {
 
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
-        <ul className="flex flex-col gap-4">
-          {NAV_MENU.map(({ name, icon: Icon }) => (
-            <NavItem key={name}>
-              <Icon className="h-5 w-5" />
-              {name}
-            </NavItem>
-          ))}
-        </ul>
+          <ul className="flex flex-col gap-4">
+            {NAV_MENU.map(({ name, icon: Icon }) => (
+              <NavItem key={name}>
+                <Icon className="h-5 w-5" />
+                {name}
+              </NavItem>
+            ))}
+          </ul>
 
-        <div className="mt-6 flex items-center gap-4">
-          {SOCIAL.map(({ name, icon: Icon, href }) => (
-            <a
-              key={name}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-black transition-colors"
-            >
-              <Icon className="h-6 w-6" />
+          <div className="mt-6 flex items-center gap-4">
+            {SOCIAL.map(({ name, icon: Icon, href }) => (
+              <a
+                key={name}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-black transition-colors"
+              >
+                <Icon className="h-6 w-6" />
+              </a>
+            ))}
+          </div>
+
+          <div className="mt-6 mb-4 flex items-center gap-2">
+            <Button variant="text">Sign In</Button>
+            <a href="#">
+              <Button color="gray">blocks</Button>
             </a>
-          ))}
+          </div>
         </div>
-
-        <div className="mt-6 mb-4 flex items-center gap-2">
-          <Button variant="text">Sign In</Button>
-          <a href="#">
-            <Button color="gray">blocks</Button>
-          </a>
-        </div>
-      </div>
-    </Collapse>
+      </Collapse>
     </MTNavbar >
   );
 }

@@ -14,7 +14,7 @@ export function Footer() {
               Art By Eli Saddiq
             </a>{" "} - Designed by{" "}
             <a href="https://www.hostsupre.me" target="_blank">
-              HostSupreme
+              HostSupre.me
             </a>{" "} - All rights reserved.
           </Typography>
           <ul className="flex gap-8 items-center">

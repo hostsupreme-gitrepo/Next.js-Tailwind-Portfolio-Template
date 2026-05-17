@@ -18,8 +18,8 @@ export function ProjectCard2({ img, title, desc, pictureleft }: ProjectCardProps
 
     const cardheader = () => {
         return (
-            <CardHeader floated={false} className="mx-0 mt-0 mb-6 w-full md:w-1/2 md:h-[50vh] relative">
-                <Typography variant="h5" className="md:hidden mb-2 pt-2 text-5xl  ">
+            <CardHeader floated={false} className="mx-0 mt-0 mb-6 w-full md:w-1/2 bg-[#b5c8fc7c] md:h-[50vh] relative">
+                <Typography variant="h5" className="md:hidden mb-2 pt-2 text-5xl  w-full text-center">
                     {title}
                 </Typography>
                 <Image

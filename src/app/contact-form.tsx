@@ -14,9 +14,9 @@ import { EnvelopeIcon, PhoneIcon, TicketIcon } from "@heroicons/react/24/solid";
 
 export function ContactForm() {
   return (
-    <section className="px-8 py-16">
+    <section id="contact" className="px-8 py-16">
       <div className="container mx-auto mb-20 text-center">
-        <Typography variant="h1" color="blue-gray" className="mb-4">
+        <Typography variant="h1" color="blue-gray" className="pt-20 mb-4">
           Contact Me
         </Typography>
         <Typography
@@ -44,13 +44,13 @@ export function ContactForm() {
               <div className="flex gap-5">
                 <PhoneIcon className="h-6 w-6 text-white" />
                 <Typography variant="h6" color="white" className="mb-2">
-                  +1(424) 535 3523
+                  +1(352) 682 8771
                 </Typography>
               </div>
               <div className="flex my-2 gap-5">
                 <EnvelopeIcon className="h-6 w-6 text-white" />
                 <Typography variant="h6" color="white" className="mb-2">
-                  eli@elisaddiq.art
+                  esm@elisaddiq.art
                 </Typography>
               </div>
               <div className="flex hidden mb-10 gap-5">

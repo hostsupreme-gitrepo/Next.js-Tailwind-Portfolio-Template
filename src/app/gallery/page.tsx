@@ -3,7 +3,7 @@ import { Navbar, Footer } from "@/components";
 import Image from "next/image";
 
 // sections
-import Testimonial from "./testimonial";
+// import Testimonial from "./testimonial";
 
 const ITEMS = [
   {

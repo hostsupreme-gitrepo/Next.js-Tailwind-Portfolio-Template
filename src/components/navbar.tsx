@@ -26,6 +26,11 @@ const NAV_MENU = [
     icon: HomeIcon,
     href: "/",
   },
+   {
+    name: "Portfolio",
+    icon: RectangleStackIcon,
+    href: "/portfolio",
+  }, 
   {
     name: "My Projects",
     icon: UserCircleIcon,
@@ -36,11 +41,7 @@ const NAV_MENU = [
     icon: EnvelopeIcon,
     href: "/#contact",
   },
-  {
-    name: "Gallery",
-    icon: RectangleStackIcon,
-    href: "/gallery",
-  },
+
 ];
 const SOCIAL = [
   {

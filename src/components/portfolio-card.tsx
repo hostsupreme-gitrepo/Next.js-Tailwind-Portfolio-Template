@@ -20,11 +20,12 @@ export function PortfolioCard({ img, title, desc }: PortfolioCardProps) {
     <>
       {isOpen && (
         <div
-          className="fixed   inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+          className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 transition-opacity duration-1000 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+            }`}
           onClick={() => setIsOpen(false)}
         >
           <div
-            className="max-w-3xl rounded-xl bg-white p-4"
+            className="left-1 max-w-3xl rounded-md bg-white p-1 cursor-pointer"
             onClick={(event) => event.stopPropagation()}
           >
             <Image
@@ -32,7 +33,8 @@ export function PortfolioCard({ img, title, desc }: PortfolioCardProps) {
               alt={title}
               width={1200}
               height={1200}
-              className="fixed top-12 left-12 max-h-[90vh]  w-full rounded-xl object-contain "
+              onClick={() => setIsOpen(false)}
+              className="h-auto w-full rounded-xl object-contain max-h-[90vh]"
             />
           </div>
         </div>

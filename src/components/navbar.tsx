@@ -63,9 +63,10 @@ const SOCIAL = [
 interface NavItemProps {
   children: React.ReactNode;
   href?: string;
+  className?: string;
 }
 
-function NavItem({ children, href }: NavItemProps) {
+function NavItem({ children, href, className }: NavItemProps) {
   const isExternal = href?.startsWith("http");
 
   return (
@@ -77,7 +78,7 @@ function NavItem({ children, href }: NavItemProps) {
         rel={isExternal ? "noopener noreferrer" : undefined}
         variant="paragraph"
         color="gray"
-        className="flex items-center gap-2 font-medium text-gray-900 text-2xl uppercase transition-colors hover:text-gray-500"
+        className={`flex items-center gap-2 font-medium text-gray-900 text-2xl uppercase transition-colors hover:text-gray-500 ${className ?? ""}`}
       >
         {children}
       </Typography>
@@ -112,8 +113,6 @@ export function Navbar() {
             </NavItem>
           ))}
         </ul>
-        <Typography color="blue-gray" className=" font-bold uppercase">
-        </Typography>
 
         <ul className="ml-auto hidden items-center gap-6 lg:flex">
           {SOCIAL.map(({ name, icon: Icon, href }) => (
@@ -129,13 +128,25 @@ export function Navbar() {
             </li>
           ))}
         </ul>
+          <IconButton
+          variant="text"
+          color="gray"
+          onClick={handleOpen}
+          className="ml-auto inline-block lg:hidden"
+        >
+          {open ? (
+            <XMarkIcon strokeWidth={2} className="h-6 w-6" />
+          ) : (
+            <Bars3Icon strokeWidth={2} className="h-6 w-6" />
+          )}
+        </IconButton>
       </div>
 
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
           <ul className="flex flex-col gap-4">
-            {NAV_MENU.map(({ name, icon: Icon }) => (
-              <NavItem key={name}>
+            {NAV_MENU.map(({ name, icon: Icon, href }) => (
+              <NavItem key={name} href={href} className="container text-sm">
                 <Icon className="h-5 w-5" />
                 {name}
               </NavItem>
@@ -154,13 +165,6 @@ export function Navbar() {
                 <Icon className="h-6 w-6" />
               </a>
             ))}
-          </div>
-
-          <div className="mt-6 mb-4 flex items-center gap-2">
-            <Button variant="text">Sign In</Button>
-            <a href="#">
-              <Button color="gray">blocks</Button>
-            </a>
           </div>
         </div>
       </Collapse>

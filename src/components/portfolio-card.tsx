@@ -39,15 +39,14 @@ export function PortfolioCard({ img, title, desc, images = [], startIndex = 0 }:
     <>
       {isOpen && (
         <div
-          className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 transition-opacity duration-300 ${
-            isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
-          }`}
+          className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 transition-opacity duration-300 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+            }`}
           onClick={() => setIsOpen(false)}
         >
           <div className="grid grid-rows-3 gap-4 lg:grid-cols-3 lg:grid-rows-1 items-center justify-items-center w-full max-w-[95vw]">
             <div className="flex items-center justify-center lg:justify-start text-white text-xl lg:text-5xl">
               <div
-                className="p-2 hover:text-blue-gray-400"
+                className="p-2 hover:text-blue-gray-400 cursor-pointer"
                 onClick={(e) => {
                   e.stopPropagation();
                   showPrev(e);
@@ -73,7 +72,7 @@ export function PortfolioCard({ img, title, desc, images = [], startIndex = 0 }:
 
             <div className="flex items-center justify-center lg:justify-end text-white text-xl lg:text-5xl">
               <div
-                className="p-2 hover:text-blue-gray-400 "
+                className="p-2 hover:text-blue-gray-400 cursor-pointer"
                 onClick={(e) => {
                   e.stopPropagation();
                   showNext(e);

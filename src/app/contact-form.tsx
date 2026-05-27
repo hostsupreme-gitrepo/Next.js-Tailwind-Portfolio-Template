@@ -11,8 +11,54 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { EnvelopeIcon, PhoneIcon, TicketIcon } from "@heroicons/react/24/solid";
+import { FormEvent, useState } from "react";
+
+const INTEREST_OPTIONS = ["Commission", "Design", "Art Showing", "Other"] as const;
 
 export function ContactForm() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [type, setType] = useState<string>(INTEREST_OPTIONS[0]);
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+    "idle",
+  );
+  const [feedback, setFeedback] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("loading");
+    setFeedback("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ firstName, lastName, email, type, message }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error ?? "Something went wrong.");
+      }
+
+      setStatus("success");
+      setFeedback("Your message was sent. We'll get back to you soon.");
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setType(INTEREST_OPTIONS[0]);
+      setMessage("");
+    } catch (error) {
+      setStatus("error");
+      setFeedback(
+        error instanceof Error ? error.message : "Failed to send message.",
+      );
+    }
+  }
+
   return (
     <section id="contact" className="px-8 py-16">
       <div className="container mx-auto mb-20 text-center">
@@ -38,7 +84,7 @@ export function ContactForm() {
                 variant="lead"
                 className="mx-auto mb-8 text-base !text-gray-500"
               >
-                Fill up the form and our Team will get back to you within 24
+                Fill out the form and our Team will get back to you within 24
                 hours.
               </Typography>
               <div className="flex gap-5">
@@ -72,7 +118,7 @@ export function ContactForm() {
               </div>
             </div>
             <div className="w-full mt-8 md:mt-0 md:px-10 col-span-4 h-full p-5">
-              <form action="#">
+              <form onSubmit={handleSubmit}>
                 <div className="mb-8 grid gap-4 lg:grid-cols-2">
                   {/* @ts-ignore */}
                   <Input
@@ -82,6 +128,9 @@ export function ContactForm() {
                     label="First Name"
                     name="first-name"
                     placeholder="eg. John"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
                     containerProps={{
                       className: "!min-w-full mb-3 md:mb-0",
                     }}
@@ -94,6 +143,9 @@ export function ContactForm() {
                     label="Last Name"
                     name="last-name"
                     placeholder="eg. Jones"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
                     containerProps={{
                       className: "!min-w-full",
                     }}
@@ -105,8 +157,12 @@ export function ContactForm() {
                   size="lg"
                   variant="static"
                   label="Email"
-                  name="first-name"
+                  name="email"
+                  type="email"
                   placeholder="eg. John.Jones@mail.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                   containerProps={{
                     className: "!min-w-full mb-8",
                   }}
@@ -118,14 +174,17 @@ export function ContactForm() {
                   What are you interested in?
                 </Typography>
                 <div className="-ml-3 mb-14 ">
-                  {/* @ts-ignore */}
-                  <Radio color="gray" name="type" label="Commission"  defaultChecked />
-                  {/* @ts-ignore */}
-                  <Radio color="gray" name="type" label="Design" />
-                  {/* @ts-ignore */}
-                  <Radio color="gray" name="type" label="Art Showing" />
-                  {/* @ts-ignore */}
-                  <Radio color="gray" name="type" label="Other" />
+                  {INTEREST_OPTIONS.map((option) => (
+                    /* @ts-ignore */
+                    <Radio
+                      key={option}
+                      color="gray"
+                      name="type"
+                      label={option}
+                      checked={type === option}
+                      onChange={() => setType(option)}
+                    />
+                  ))}
                 </div>
                 {/* @ts-ignore */}
                 <Textarea
@@ -133,14 +192,33 @@ export function ContactForm() {
                   size="lg"
                   variant="static"
                   label="Your Message"
-                  name="first-name"
+                  name="message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
                   containerProps={{
                     className: "!min-w-full mb-8",
                   }}
                 />
+                {feedback ? (
+                  <Typography
+                    variant="small"
+                    className={`mb-4 ${
+                      status === "success" ? "text-green-600" : "text-red-600"
+                    }`}
+                  >
+                    {feedback}
+                  </Typography>
+                ) : null}
                 <div className="w-full flex justify-end">
-                  <Button className="w-full md:w-fit" color="gray" size="md">
-                    Send message
+                  <Button
+                    type="submit"
+                    className="w-full md:w-fit"
+                    color="gray"
+                    size="md"
+                    disabled={status === "loading"}
+                  >
+                    {status === "loading" ? "Sending…" : "Send message"}
                   </Button>
                 </div>
               </form>

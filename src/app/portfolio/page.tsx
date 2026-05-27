@@ -41,13 +41,13 @@ const ITEMS = [
         desc: "",
 
     },
-        {
+    {
         img: `/image/muslim_woman-ib.jpg`,
         title: "Muslim Woman",
         desc: "Mobile app designed to help users discover and explore local restaurants and cuisines.",
     },
 
-        {
+    {
         img: `/image/IMG_0504.jpg`,
         title: "Man in Turbin",
         desc: "",
@@ -59,7 +59,7 @@ const ITEMS = [
         desc: "",
 
     },
-        {
+    {
         img: `/image/Scan_20260414-adjusted.JPG`,
         title: "Self Portrait",
         desc: "",
@@ -83,7 +83,7 @@ export default function PortfolioPage() {
                     </div>
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         {ITEMS.map((item, index) => (
-                            <PortfolioCard key={index} {...item} />
+                            <PortfolioCard key={index} {...item} images={ITEMS.map(i => i.img)} startIndex={index} />
                         ))}
                     </div>
 

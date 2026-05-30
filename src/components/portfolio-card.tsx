@@ -49,10 +49,10 @@ export function PortfolioCard({ img, title, desc, images = [], startIndex = 0 }:
             }`}
           onClick={() => setIsOpen(false)}
         >
-          <div className="grid grid-rows-3 gap-0 lg:grid-cols-3 lg:grid-rows-1 lg:gap-4 items-center justify-items-center w-full max-w-[95vw]">
+          <div className=" grid grid-rows-3 gap-0 lg:grid-cols-3 lg:grid-rows-1 lg:gap-4 items-center justify-items-center w-full max-w-[95vw]">
             <div className="flex  items-center justify-center lg:justify-start text-white text-3xl sm:text-4xl lg:text-5xl">
               <div
-                className="w-full lg:w-auto lg:p-2 p-3 hover:text-blue-gray-400 cursor-pointer"
+                className="lg:flex w-full lg:w-auto lg:p-2 p-3 hover:text-blue-gray-400 cursor-pointer hidden"
                 onClick={(e) => {
                   e.stopPropagation();
                   showPrev(e);
@@ -63,23 +63,38 @@ export function PortfolioCard({ img, title, desc, images = [], startIndex = 0 }:
             </div>
 
             <div
-              className="flex justify-center max-w-3xl rounded-md bg-white p-1"
+              className="relative flex justify-center max-w-3xl rounded-md bg-white p-1"
               onClick={(event) => event.stopPropagation()}
             >
+              <div className="fixed z-100  top-[50%] left-[.25vw] text-white rounded-full text-3xl hover:text-blue-gray-400 lg:hidden cursor-pointer" 
+              onClick={(e) => {
+                  e.stopPropagation();
+                  showPrev(e);
+                }}>
+                {ICONS[0]}
+              </div>
+               <div className="fixed z-100 top-[50%] right-[.25vw] text-white text-3xl hover:text-blue-gray-400 lg:hidden cursor-pointer"
+               onClick={(e) => {
+                  e.stopPropagation();
+                  showNext(e);
+                }}>
+                {ICONS[1]}
+              </div>
+
               <Image
                 src={gallery[index]}
                 alt={title}
                 width={1200}
                 height={1200}
                 onClick={() => setIsOpen(false)}
-                className="h-auto w-full rounded-md object-contain max-h-[90vh]"
+                className="h-auto w-full rounded-md object-contain max-h-[85vh]"
               />
               
             </div>
 
             <div className="flex items-center justify-center lg:justify-end text-white text-3xl sm:text-4xl lg:text-5xl">
               <div
-                className="w-full lg:w-auto lg:p-2 p-3 hover:text-blue-gray-400 cursor-pointer"
+                className="lg:flex w-full lg:w-auto lg:p-2 p-3 hover:text-blue-gray-400 cursor-pointer hidden"
                 onClick={(e) => {
                   e.stopPropagation();
                   showNext(e);

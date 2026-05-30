@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import {
   Card,
   CardHeader,
@@ -14,6 +15,11 @@ interface PortfolioCardProps {
   images?: string[];
   startIndex?: number;
 }
+
+const ICONS = [
+  <SlArrowLeft key="left" />,
+  <SlArrowRight key="right" />
+];
 
 export function PortfolioCard({ img, title, desc, images = [], startIndex = 0 }: PortfolioCardProps) {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -39,20 +45,20 @@ export function PortfolioCard({ img, title, desc, images = [], startIndex = 0 }:
     <>
       {isOpen && (
         <div
-          className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 transition-opacity duration-300 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+          className={`fixed  inset-0 z-50  flex items-center justify-center bg-black/70 p-4 transition-opacity duration-300 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
             }`}
           onClick={() => setIsOpen(false)}
         >
-          <div className="grid grid-rows-3 gap-4 lg:grid-cols-3 lg:grid-rows-1 items-center justify-items-center w-full max-w-[95vw]">
-            <div className="flex items-center justify-center lg:justify-start text-white text-xl lg:text-5xl">
+          <div className="grid grid-rows-3 gap-0 lg:grid-cols-3 lg:grid-rows-1 lg:gap-4 items-center justify-items-center w-full max-w-[95vw]">
+            <div className="flex  items-center justify-center lg:justify-start text-white text-3xl sm:text-4xl lg:text-5xl">
               <div
-                className="p-2 hover:text-blue-gray-400 cursor-pointer"
+                className="w-full lg:w-auto lg:p-2 p-3 hover:text-blue-gray-400 cursor-pointer"
                 onClick={(e) => {
                   e.stopPropagation();
                   showPrev(e);
                 }}
               >
-                {`< Previous`}
+                {ICONS[0]}
               </div>
             </div>
 
@@ -68,17 +74,18 @@ export function PortfolioCard({ img, title, desc, images = [], startIndex = 0 }:
                 onClick={() => setIsOpen(false)}
                 className="h-auto w-full rounded-md object-contain max-h-[90vh]"
               />
+              
             </div>
 
-            <div className="flex items-center justify-center lg:justify-end text-white text-xl lg:text-5xl">
+            <div className="flex items-center justify-center lg:justify-end text-white text-3xl sm:text-4xl lg:text-5xl">
               <div
-                className="p-2 hover:text-blue-gray-400 cursor-pointer"
+                className="w-full lg:w-auto lg:p-2 p-3 hover:text-blue-gray-400 cursor-pointer"
                 onClick={(e) => {
                   e.stopPropagation();
                   showNext(e);
                 }}
               >
-                {`Next >`}
+                {ICONS[1]}
               </div>
             </div>
           </div>

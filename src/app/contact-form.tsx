@@ -96,10 +96,10 @@ export function ContactForm() {
               <div className="flex my-2 gap-5">
                 <EnvelopeIcon className="h-6 w-6 text-white" />
                 <Typography variant="h6" color="white" className="mb-2">
-                  esm@elisaddiq.art
+                  esm@artbyelisaddiq.com
                 </Typography>
               </div>
-              <div className="flex hidden mb-10 gap-5">
+              <div className="hidden mb-10 gap-5">
                 <TicketIcon className="h-6 w-6 text-white" />
                 <Typography variant="h6" color="white" className="mb-2">
                   Open Support Ticket
